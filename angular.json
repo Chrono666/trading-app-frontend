@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "projects": {
+    "trading-app-frontend": {
+      "projectType": "application",
+      "root": "apps/trading-app-frontend",
+      "sourceRoot": "apps/trading-app-frontend/src",
+      "prefix": "traiding-app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/trading-app-frontend",
+            "index": "apps/trading-app-frontend/src/index.html",
+            "main": "apps/trading-app-frontend/src/main.ts",
+            "polyfills": "apps/trading-app-frontend/src/polyfills.ts",
+            "tsConfig": "apps/trading-app-frontend/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/trading-app-frontend/src/favicon.ico",
+              "apps/trading-app-frontend/src/assets"
+            ],
+            "styles": ["apps/trading-app-frontend/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/trading-app-frontend/src/environments/environment.ts",
+                  "with": "apps/trading-app-frontend/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "trading-app-frontend:build:production"
+            },
+            "development": {
+              "browserTarget": "trading-app-frontend:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "trading-app-frontend:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/trading-app-frontend/src/**/*.ts",
+              "apps/trading-app-frontend/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/trading-app-frontend"],
+          "options": {
+            "jestConfig": "apps/trading-app-frontend/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "trading-app-frontend-e2e": {
+      "root": "apps/trading-app-frontend-e2e",
+      "sourceRoot": "apps/trading-app-frontend-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/trading-app-frontend-e2e/cypress.json",
+            "devServerTarget": "trading-app-frontend:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "trading-app-frontend:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/trading-app-frontend-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["trading-app-frontend"]
+    }
+  }
+}
