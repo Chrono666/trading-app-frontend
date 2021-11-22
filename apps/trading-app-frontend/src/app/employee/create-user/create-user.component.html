@@ -1,0 +1,37 @@
+<div
+  class="
+    uk-card
+    uk-card-default
+    uk-card-body
+    uk-text-center
+    uk-align-center
+    uk-position-center
+  "
+>
+  <h3 class="uk-card-title">Create new user</h3>
+  <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
+    <div>
+      <div class="uk-h4">Customer Name</div>
+      <div *ngFor="let control of createUserForm.controls | keys">
+        <div class="uk-margin">
+          <input
+            class="uk-input"
+            type="text"
+            formControlName="{{ control }}"
+            placeholder="{{ control | formatText }}"
+          />
+        </div>
+        <div class="uk-h4" *ngIf="control === 'lastName'">
+          Customer Address:
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button class="uk-button uk-button-danger" (click)="onCancel()">
+        Cancel
+      </button>
+      <button class="uk-button uk-button-primary uk-align-right">OK</button>
+    </div>
+  </form>
+</div>

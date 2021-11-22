@@ -13,7 +13,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "traidingApp",
+            "prefix": "tradingApp",
             "style": "camelCase"
           }
         ],
@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "traiding-app",
+            "prefix": "trading-app",
             "style": "kebab-case"
           }
         ]

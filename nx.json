@@ -1,5 +1,5 @@
 {
-  "npmScope": "traiding-app",
+  "npmScope": "trading-app",
   "affected": {
     "defaultBase": "main"
   },

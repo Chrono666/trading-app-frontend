@@ -1,0 +1,19 @@
+<div
+  class="
+    uk-card
+    uk-card-default
+    uk-card-body
+    uk-text-center
+    uk-align-center
+    uk-position-center
+  "
+>
+  <ul uk-tab>
+    <li *ngFor="let link of navLinks" >
+      <a [routerLink]="link.link">
+        {{ link.label }}
+      </a>
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
+</div>

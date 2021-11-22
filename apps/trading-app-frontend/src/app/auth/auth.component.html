@@ -1,1 +1,62 @@
-<p>auth works!</p>
+<div
+  class="
+    uk-card
+    uk-card-default
+    uk-card-body
+    uk-card-small
+    uk-align-center
+    uk-position-center
+  "
+>
+  <h3 class="uk-card-title">Sign in</h3>
+  <p>Please sing in with your user id and password</p>
+  <form
+    class="uk-align-center"
+    [formGroup]="signUpForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="uk-text-center">
+      <div class="uk-margin">
+        <div class="uk-inline">
+          <span class="uk-form-icon" uk-icon="icon: user"></span>
+          <input
+            class="uk-input"
+            type="text"
+            formControlName="userId"
+            placeholder="User Id"
+          />
+        </div>
+      </div>
+
+      <div class="uk-margin">
+        <div class="uk-inline">
+          <span
+            class="uk-form-icon uk-form-icon-flip"
+            uk-icon="icon: lock"
+          ></span>
+          <input
+            class="uk-input"
+            type="password"
+            formControlName="userPassword"
+            placeholder="Password"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!--      <p>SignupForm: {{ signUpForm.value | json }}</p>-->
+    <!--      <p>SignupForm: {{ signUpForm.status }}</p>-->
+
+    <div>
+      <button class="uk-button uk-button-danger" (click)="onCancel()">
+        Cancel
+      </button>
+      <button
+        class="uk-button uk-button-primary uk-align-right"
+        [disabled]="!signUpForm.valid"
+      >
+        OK
+      </button>
+    </div>
+  </form>
+</div>
