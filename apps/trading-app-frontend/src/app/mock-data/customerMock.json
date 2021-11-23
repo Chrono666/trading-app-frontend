@@ -1,0 +1,42 @@
+[
+  {
+    "userId": "1",
+    "role": "customer",
+    "firstName": "Max",
+    "lastName": "Mustermann",
+    "street": "Not found street",
+    "city": "Cool Town",
+    "state": "Best state",
+    "zip": "2212"
+  },
+  {
+    "userId": "2",
+    "role": "customer",
+    "firstName": "Jon",
+    "lastName": "Doe",
+    "street": "Not found street",
+    "city": "Cool Town",
+    "state": "Best state",
+    "zip": "2212"
+  },
+  {
+    "userId": "3",
+    "role": "customer",
+    "firstName": "Max",
+    "lastName": "Doe",
+    "street": "Not found street",
+    "city": "Cool Town",
+    "state": "Best state",
+    "zip": "2212"
+  },
+  {
+    "userId": "4",
+    "role": "customer",
+    "firstName": "Jon",
+    "lastName": "Mustermann",
+    "street": "Not found street",
+    "city": "Cool Town",
+    "state": "Best state",
+    "zip": "2212"
+  }
+]

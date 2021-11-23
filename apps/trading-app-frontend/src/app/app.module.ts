@@ -15,10 +15,24 @@ import { ViewUserDepotComponent } from './employee/view-user-depot/view-user-dep
 import { KeysPipe } from './shared/pipes/keys.pipe';
 import { FormatTextPipe } from './shared/pipes/format-text.pipe';
 import { StocksComponent } from './employee/stocks/stocks.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent, EmployeeHomeComponent, CreateUserComponent, SearchUserComponent, ViewStocksComponent, BuyStocksComponent, SellStocksComponent, ViewUserDepotComponent, KeysPipe, FormatTextPipe, StocksComponent],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  declarations: [
+    AppComponent,
+    AuthComponent,
+    EmployeeHomeComponent,
+    CreateUserComponent,
+    SearchUserComponent,
+    ViewStocksComponent,
+    BuyStocksComponent,
+    SellStocksComponent,
+    ViewUserDepotComponent,
+    KeysPipe,
+    FormatTextPipe,
+    StocksComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

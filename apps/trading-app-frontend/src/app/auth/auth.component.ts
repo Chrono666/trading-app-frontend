@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NavigationService } from '../shared/services/navigation.service';
+import { NavigationService } from '../shared/services/navigation/navigation.service';
 
 @Component({
   selector: 'trading-app-auth',

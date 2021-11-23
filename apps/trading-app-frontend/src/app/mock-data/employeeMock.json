@@ -1,0 +1,10 @@
+{
+  "userId": "2",
+  "role": "employee",
+  "firstName": "Maria",
+  "lastName": "Musterfrau",
+  "street": "Not here street",
+  "city": "Amazing Town",
+  "state": "Best state",
+  "zip": "1111"
+}
