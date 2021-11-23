@@ -11,6 +11,7 @@ import customerMock from '../../../mock-data/customerMock.json';
 })
 export class UserService {
   url = 'backendURL';
+  user: User = {};
 
   constructor(private http: HttpClient) {}
 
@@ -43,5 +44,13 @@ export class UserService {
 
   createNewUser$(user: User): Observable<any> {
     return this.http.post<User>(this.url, user)
+  }
+
+  getUser(): User {
+    return this.user
+  }
+
+  setUser(user: User): void {
+    this.user = user;
   }
 }

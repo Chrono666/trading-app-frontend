@@ -48,11 +48,12 @@
     <!--      <p>SignupForm: {{ signUpForm.status }}</p>-->
 
     <div>
-      <button class="uk-button uk-button-danger" (click)="onCancel()">
+      <button class="uk-button uk-button-danger" type='button' (click)="onCancel()">
         Cancel
       </button>
       <button
         class="uk-button uk-button-primary uk-align-right"
+        type='submit'
         [disabled]="!signUpForm.valid"
       >
         OK

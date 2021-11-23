@@ -1,0 +1,27 @@
+<nav *ngIf='authService.authenticated' class="uk-navbar-container" uk-navbar="mode:click">
+    <div class="uk-navbar-left">
+      <ul class="uk-navbar-nav">
+        <li class="uk-active"><a href="#">Home</a></li>
+        <li>
+          <a href="#">Menu</a>
+          <div class="uk-navbar-dropdown">
+            <ul class="uk-nav uk-navbar-dropdown-nav">
+              <li class="uk-active">
+                <a routerLink="employee/available-stocks">View Stocks</a>
+              </li>
+              <li><a routerLink="employee/create-user">Create User</a></li>
+              <li><a routerLink="employee/search-user">Search User</a></li>
+              <li><a routerLink="employee/stocks">Buy/Sell Stocks</a></li>
+              <li><a routerLink="employee/view-depot">View User Depot</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="uk-navbar-right">
+      <button class="uk-button-danger uk-button-large" (click)="onLogout()">
+        LOGOUT
+      </button>
+    </div>
+</nav>

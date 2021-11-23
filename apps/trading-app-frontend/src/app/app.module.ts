@@ -16,6 +16,8 @@ import { KeysPipe } from './shared/pipes/keys.pipe';
 import { FormatTextPipe } from './shared/pipes/format-text.pipe';
 import { StocksComponent } from './employee/stocks/stocks.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { ModalComponent } from './shared/components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     KeysPipe,
     FormatTextPipe,
     StocksComponent,
+    HeaderComponent,
+    ModalComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
   providers: [],
