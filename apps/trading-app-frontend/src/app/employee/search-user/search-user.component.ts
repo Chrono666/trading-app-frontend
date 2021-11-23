@@ -31,7 +31,7 @@ export class SearchUserComponent implements OnInit {
     //TODO: Validation
     console.log(this.searchUserForm);
     this.userService
-      .fetchUser$({
+      .mockFetchUsers$({
         userId: this.searchUserForm.value.userId,
         firstName: this.searchUserForm.value.firstName,
         lastName: this.searchUserForm.value.lastName,

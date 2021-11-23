@@ -9,7 +9,7 @@
   "
 >
   <h3 class="uk-card-title">Create new user</h3>
-  <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="createUserForm" (ngSubmit)='onSubmit()'>
     <div>
       <div class="uk-h4">Customer Name</div>
       <div *ngFor="let control of createUserForm.controls | keys">
@@ -27,11 +27,21 @@
       </div>
     </div>
 
+    <div *ngIf="error" class="uk-alert-danger uk-text-large">
+      <p>{{ errorMessage }}</p>
+    </div>
+
     <div>
-      <button class="uk-button uk-button-danger" (click)="onCancel()">
+      <button class="uk-button uk-button-danger" type='button' (click)="onCancel()">
         Cancel
       </button>
-      <button class="uk-button uk-button-primary uk-align-right">OK</button>
+      <button
+        type='submit'
+        class="uk-button uk-button-primary uk-align-right"
+        [disabled]="!createUserForm.valid"
+      >
+        OK
+      </button>
     </div>
   </form>
 </div>

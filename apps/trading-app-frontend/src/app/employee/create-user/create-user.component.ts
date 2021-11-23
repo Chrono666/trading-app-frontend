@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../../shared/services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'trading-app-create-user',
@@ -7,30 +9,51 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./create-user.component.scss'],
 })
 export class CreateUserComponent implements OnInit {
+  error = false;
+  errorMessage = '';
   createUserForm: FormGroup = new FormGroup({});
   controls = {
-    firstName: [''],
-    lastName: [''],
-    street: [''],
-    city: [''],
-    state: [''],
-    zip: [''],
+    firstName: ['', [Validators.required, Validators.minLength(1)]],
+    lastName: ['', [Validators.required, Validators.minLength(1)]],
+    street: ['', [Validators.required, Validators.minLength(1)]],
+    city: ['', [Validators.required, Validators.minLength(1)]],
+    state: ['', [Validators.required, Validators.minLength(1)]],
+    zip: ['', [Validators.required, Validators.minLength(1)]],
   };
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.createUserForm = this.fb.group(this.controls);
   }
 
   onSubmit() {
-    //TODO: send data to backend redirect to home screen
-    //TODO: Validation
-    console.log(this.createUserForm.controls);
+    this.userService
+      .mockCreateNewUser$({
+        firstName: this.createUserForm.value.firstName,
+        lastName: this.createUserForm.value.lastName,
+        street: this.createUserForm.value.street,
+        city: this.createUserForm.value.city,
+        state: this.createUserForm.value.state,
+        zip: this.createUserForm.value.zip,
+      })
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.router.navigate(['employee/home']).then();
+        },
+        (error) => {
+          this.error = true;
+          this.errorMessage = error;
+        }
+      );
   }
 
   onCancel() {
     this.createUserForm.reset();
   }
-
 }

@@ -15,8 +15,8 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   //TODO: faulty logic but user selection should happen in backend
-  //TODO: should also return error msg if no user exists
-  fetchUser$(user: User): Observable<User[]> {
+  //TODO: backend should also return error msg if no user exists
+  mockFetchUsers$(user: User): Observable<User[]> {
     console.log('User: ', user);
     return of(customerMock as User[]).pipe(
       map((response: User[]) => {
@@ -30,10 +30,18 @@ export class UserService {
     );
   }
 
-  //TODO: depends on the backend if
-  fetchUsers$(user: User) {
+  mockCreateNewUser$(user: User): Observable<any> {
+    console.log('User:', user);
+    return of('new user was created')
+  }
+
+  fetchUsers$(user: User): Observable<User[]> {
     return this.http.get<User[]>(this.url, {
       headers: new HttpHeaders({ user: JSON.stringify(user) }),
     });
+  }
+
+  createNewUser$(user: User): Observable<any> {
+    return this.http.post<User>(this.url, user)
   }
 }
