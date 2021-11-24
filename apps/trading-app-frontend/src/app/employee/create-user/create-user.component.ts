@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../shared/services/user/user.service';
 import { Router } from '@angular/router';
+import { Subscriber, Subscription } from 'rxjs';
 
 @Component({
   selector: 'trading-app-create-user',
   templateUrl: './create-user.component.html',
   styleUrls: ['./create-user.component.scss'],
 })
-export class CreateUserComponent implements OnInit {
+export class CreateUserComponent implements OnInit, OnDestroy {
   error = false;
   errorMessage = '';
+  subscriptions: Subscription = new Subscriber();
   createUserForm: FormGroup = new FormGroup({});
   controls = {
     firstName: ['', [Validators.required, Validators.minLength(1)]],
@@ -32,7 +34,7 @@ export class CreateUserComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService
+    this.subscriptions = this.userService
       .mockCreateNewUser$({
         firstName: this.createUserForm.value.firstName,
         lastName: this.createUserForm.value.lastName,
@@ -55,5 +57,9 @@ export class CreateUserComponent implements OnInit {
 
   onCancel() {
     this.createUserForm.reset();
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
   }
 }

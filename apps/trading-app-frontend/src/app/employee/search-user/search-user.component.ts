@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from '../../shared/services/user/user.service';
 import { User } from '../../models/user.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'trading-app-search-user',
   templateUrl: './search-user.component.html',
   styleUrls: ['./search-user.component.scss'],
 })
-export class SearchUserComponent implements OnInit {
+export class SearchUserComponent implements OnInit, OnDestroy {
   user!: User;
   error = false;
   errorMessage = '';
   formValue = '';
+  subscriptions = new Subscription();
   searchUserForm: FormGroup = new FormGroup({});
   controls = {
     userId: [''],
@@ -30,7 +32,7 @@ export class SearchUserComponent implements OnInit {
     //TODO: send data to backend and display search result
     //TODO: Validation
     console.log(this.searchUserForm);
-    this.userService
+    this.subscriptions = this.userService
       .mockFetchUsers$({
         userId: this.searchUserForm.value.userId,
         firstName: this.searchUserForm.value.firstName,
@@ -52,6 +54,10 @@ export class SearchUserComponent implements OnInit {
 
   onCancel() {
     this.searchUserForm.reset();
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
   }
 
 }

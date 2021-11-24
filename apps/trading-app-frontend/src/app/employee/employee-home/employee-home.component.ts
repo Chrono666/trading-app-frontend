@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavigationService } from '../../shared/services/navigation/navigation.service';
 
 @Component({
@@ -31,7 +31,6 @@ export class EmployeeHomeComponent {
   ];
 
   constructor(private navigationService: NavigationService) {}
-
 
   navigateTo(index: number) {
     this.navigationService.navigateTo(this.menuOptions[index].path);

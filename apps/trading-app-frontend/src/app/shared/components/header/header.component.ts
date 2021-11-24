@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session/session.service';
 import { UserService } from '../../services/user/user.service';
 import { User } from '../../../models/user.model';
@@ -8,6 +8,7 @@ import { AuthService } from '../../services/auth/auth.service';
   selector: 'trading-app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit {
   user: User = {};
@@ -25,4 +26,5 @@ export class HeaderComponent implements OnInit {
   onLogout() {
     this.sessionService.logout(this.user);
   }
+
 }

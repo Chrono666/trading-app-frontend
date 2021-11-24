@@ -10,6 +10,7 @@ import { BuyStocksComponent } from './employee/buy-stocks/buy-stocks.component';
 import { SellStocksComponent } from './employee/sell-stocks/sell-stocks.component';
 import { StocksComponent } from './employee/stocks/stocks.component';
 import { ViewUserDepotComponent } from './employee/view-user-depot/view-user-depot.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
@@ -17,20 +18,41 @@ const routes: Routes = [
   {
     path: 'employee',
     children: [
-      { path: 'home', component: EmployeeHomeComponent },
-      { path: 'available-stocks', component: ViewStocksComponent },
-      { path: 'create-user', component: CreateUserComponent },
-      { path: 'search-user', component: SearchUserComponent },
+      {
+        path: 'home',
+        component: EmployeeHomeComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'available-stocks',
+        component: ViewStocksComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'create-user',
+        component: CreateUserComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'search-user',
+        component: SearchUserComponent,
+        canActivate: [AuthGuard]
+      },
       {
         path: 'stocks',
         component: StocksComponent,
+        canActivate: [AuthGuard],
         children: [
-          { path: '', pathMatch: 'full', redirectTo: 'buy'},
+          { path: '', pathMatch: 'full', redirectTo: 'buy' },
           { path: 'buy', component: BuyStocksComponent },
           { path: 'sell', component: SellStocksComponent },
         ],
       },
-      { path: 'view-depot', component: ViewUserDepotComponent },
+      {
+        path: 'view-depot',
+        component: ViewUserDepotComponent,
+        canActivate: [AuthGuard]
+      },
     ],
   },
 ];
