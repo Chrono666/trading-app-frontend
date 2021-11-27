@@ -1,0 +1,11 @@
+[
+  {
+    "symbol": "GOOG",
+    "company": "Alphabet Inc.",
+    "floatingStockNumber": "some number",
+    "lastTradeTime": "some date",
+    "lastTradePrice": "some price",
+    "nameStockExchange": "some name",
+    "marketCapitalization": "some value"
+  }
+]

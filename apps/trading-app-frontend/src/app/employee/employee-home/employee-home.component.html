@@ -1,18 +1,15 @@
-<div
-  class="
-    uk-card
-    uk-card-default
-    uk-card-large
-    uk-card-body
-    uk-text-center
-    uk-align-center
-    uk-position-center
-  "
->
-  <h3 class="uk-card-title">Employee Menu</h3>
+<div class="uk-container uk-text-center uk-position-center">
+  <h2>Employee Menu</h2>
   <div *ngFor="let options of menuOptions; let index = index">
     <button
-      class="uk-button uk-button-primary uk-button-large uk-margin-top uk-width"
+      class="
+        uk-button
+        uk-text-bolder
+        uk-button-primary
+        uk-button-large
+        uk-margin-top
+        uk-width
+      "
       (click)="navigateTo(index)"
     >
       {{ options.title }}

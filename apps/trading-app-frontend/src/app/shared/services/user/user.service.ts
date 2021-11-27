@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../../../models/user.model';
 import { map, Observable, of } from 'rxjs';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import customerMock from '../../../mock-data/customerMock.json';
 
 @Injectable({
@@ -11,6 +9,7 @@ import customerMock from '../../../mock-data/customerMock.json';
 })
 export class UserService {
   url = 'backendURL';
+  users: User[] = [];
   user: User = {};
 
   constructor(private http: HttpClient) {}
@@ -18,7 +17,6 @@ export class UserService {
   //TODO: faulty logic but user selection should happen in backend
   //TODO: backend should also return error msg if no user exists
   mockFetchUsers$(user: User): Observable<User[]> {
-    console.log('User: ', user);
     return of(customerMock as User[]).pipe(
       map((response: User[]) => {
         return response.filter(
@@ -31,9 +29,16 @@ export class UserService {
     );
   }
 
+  mockFetchAllUsers$(): Observable<User[]> {
+    return of(customerMock as User[]).pipe(
+      map((response: User[]) => {
+        return response;
+      })
+    );
+  }
+
   mockCreateNewUser$(user: User): Observable<any> {
-    console.log('User:', user);
-    return of('new user was created')
+    return of('new user was created');
   }
 
   fetchUsers$(user: User): Observable<User[]> {
@@ -43,14 +48,23 @@ export class UserService {
   }
 
   createNewUser$(user: User): Observable<any> {
-    return this.http.post<User>(this.url, user)
+    return this.http.post<User>(this.url, user);
   }
 
   getUser(): User {
-    return this.user
+    return this.user;
   }
 
   setUser(user: User): void {
     this.user = user;
   }
+
+  getUsers(): User[] {
+    return this.users;
+  }
+
+  setUsers(users: User[]): void {
+    this.users = users;
+  }
+
 }

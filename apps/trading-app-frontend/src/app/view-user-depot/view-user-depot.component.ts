@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavigationService } from '../../shared/services/navigation/navigation.service';
+import { NavigationService } from '../shared/services/navigation/navigation.service';
 
 @Component({
   selector: 'trading-app-view-user-depot',
@@ -10,7 +10,4 @@ export class ViewUserDepotComponent {
 
   constructor(private navigationService: NavigationService) { }
 
-  goToHome(){
-    this.navigationService.navigateTo('employee/home')
-  }
 }

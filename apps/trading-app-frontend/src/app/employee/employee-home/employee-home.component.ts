@@ -10,7 +10,11 @@ export class EmployeeHomeComponent {
   menuOptions = [
     {
       title: 'View Available Stocks',
-      path: 'employee/available-stocks',
+      path: 'employee/stocks',
+    },
+    {
+      title: 'Display Users',
+      path: 'employee/users',
     },
     {
       title: 'Create User',
@@ -19,14 +23,6 @@ export class EmployeeHomeComponent {
     {
       title: 'Search User',
       path: 'employee/search-user',
-    },
-    {
-      title: 'Buy/Sell Stocks For User',
-      path: 'employee/stocks',
-    },
-    {
-      title: 'View Depot of User',
-      path: 'employee/view-depot',
     },
   ];
 

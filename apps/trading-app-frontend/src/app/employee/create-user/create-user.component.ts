@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../shared/services/user/user.service';
 import { Router } from '@angular/router';
 import { Subscriber, Subscription } from 'rxjs';
+import { NavigationService } from '../../shared/services/navigation/navigation.service';
 
 @Component({
   selector: 'trading-app-create-user',
@@ -26,7 +27,8 @@ export class CreateUserComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private navigationService: NavigationService
   ) {}
 
   ngOnInit(): void {
@@ -45,7 +47,6 @@ export class CreateUserComponent implements OnInit, OnDestroy {
       })
       .subscribe(
         (response) => {
-          console.log(response);
           this.router.navigate(['employee/home']).then();
         },
         (error) => {
@@ -57,6 +58,7 @@ export class CreateUserComponent implements OnInit, OnDestroy {
 
   onCancel() {
     this.createUserForm.reset();
+    this.navigationService.navigateToEmployeeHome();
   }
 
   ngOnDestroy() {

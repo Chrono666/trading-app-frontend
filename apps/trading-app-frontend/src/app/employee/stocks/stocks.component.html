@@ -8,12 +8,39 @@
     uk-position-center
   "
 >
-  <ul uk-tab>
-    <li *ngFor="let link of navLinks" >
-      <a [routerLink]="link.link">
-        {{ link.label }}
-      </a>
-    </li>
-  </ul>
-  <router-outlet></router-outlet>
+  <h3 class="uk-card-title">Buy or Sell Stocks</h3>
+  <div class="uk-margin-medium-top">
+    <table class="uk-table uk-table-divider">
+      <thead>
+        <tr>
+          <th *ngFor="let heading of tableHeadings">{{ heading }}</th>
+          <th>BUY STOCK</th>
+          <th>SELL STOCK</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let stock of stocks'>
+          <td>{{stock.symbol}}</td>
+          <td>{{stock.company}}</td>
+          <td>{{stock.floatingStockNumber}}</td>
+          <td>{{stock.lastTradeTime}}</td>
+          <td>{{stock.lastTradePrice}}</td>
+          <td>{{stock.nameStockExchange}}</td>
+          <td>{{stock.marketCapitalization}}</td>
+          <td><button class='uk-button uk-button-primary uk-button-small'>BUY</button></td>
+          <td><button class='uk-button uk-button-danger uk-button-small'>SELL</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="uk-margin-medium-top">
+    <button
+      class="uk-button uk-button-danger uk-align-left"
+      (click)='onCancel()'
+    >
+     CANCEL
+    </button>
+<!--    <button class="uk-button uk-button-primary uk-align-right">BUY</button>-->
+  </div>
 </div>

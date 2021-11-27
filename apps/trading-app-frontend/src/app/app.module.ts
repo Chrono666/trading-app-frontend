@@ -8,16 +8,15 @@ import { AuthComponent } from './auth/auth.component';
 import { EmployeeHomeComponent } from './employee/employee-home/employee-home.component';
 import { CreateUserComponent } from './employee/create-user/create-user.component';
 import { SearchUserComponent } from './employee/search-user/search-user.component';
-import { ViewStocksComponent } from './employee/view-stocks/view-stocks.component';
-import { BuyStocksComponent } from './employee/buy-stocks/buy-stocks.component';
-import { SellStocksComponent } from './employee/sell-stocks/sell-stocks.component';
-import { ViewUserDepotComponent } from './employee/view-user-depot/view-user-depot.component';
+import { ViewUserDepotComponent } from './view-user-depot/view-user-depot.component';
 import { KeysPipe } from './shared/pipes/keys.pipe';
 import { FormatTextPipe } from './shared/pipes/format-text.pipe';
 import { StocksComponent } from './employee/stocks/stocks.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
+import { DisplayUserComponent } from './employee/display-user/display-user.component';
+import { DepotComponent } from './view-user-depot/depot/depot.component';
 
 @NgModule({
   declarations: [
@@ -26,15 +25,14 @@ import { ModalComponent } from './shared/components/modal/modal.component';
     EmployeeHomeComponent,
     CreateUserComponent,
     SearchUserComponent,
-    ViewStocksComponent,
-    BuyStocksComponent,
-    SellStocksComponent,
     ViewUserDepotComponent,
     KeysPipe,
     FormatTextPipe,
     StocksComponent,
     HeaderComponent,
     ModalComponent,
+    DisplayUserComponent,
+    DepotComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
   providers: [],

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { StockService } from '../../shared/services/stock/stock.service';
+import { Stock } from '../../models/stock.model';
+import { NavigationService } from '../../shared/services/navigation/navigation.service';
 
 @Component({
   selector: 'trading-app-stocks',
@@ -8,34 +11,35 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./stocks.component.scss'],
 })
 export class StocksComponent implements OnInit {
-  navLinks: any[];
-  activeLinkIndex = 0;
   subscriptions = new Subscription();
+  stocks: Stock[] = [];
 
-  constructor(private router: Router) {
-    this.navLinks = [
-      {
-        label: 'BUY',
-        link: 'buy',
-        index: 0,
-      },
-      {
-        label: 'SELL',
-        link: 'sell',
-        index: 1,
-      },
-    ];
-  }
+  tableHeadings = [
+    'Symbol',
+    'Company',
+    'Floating Stock Number',
+    'Last Trade Time',
+    'Last Trade Price',
+    'Name Stock Exchange',
+    'Market Capitalization',
+  ];
+
+  constructor(
+    private stockService: StockService,
+    private navigationService: NavigationService
+  ) {}
 
   ngOnInit(): void {
-    this.subscriptions = this.router.events.subscribe(() => {
-      this.activeLinkIndex = this.navLinks.indexOf(
-        this.navLinks.find((tab) => tab.link === '.' + this.router.url)
-      );
+    this.subscriptions = this.stockService.mockGetStocks$().subscribe((s) => {
+      this.stocks = s;
     });
   }
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
+  }
+
+  onCancel() {
+    this.navigationService.navigateToEmployeeHome();
   }
 }

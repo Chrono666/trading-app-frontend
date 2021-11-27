@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from '../../shared/services/user/user.service';
 import { User } from '../../models/user.model';
 import { Subscription } from 'rxjs';
+import { NavigationService } from '../../shared/services/navigation/navigation.service';
 
 @Component({
   selector: 'trading-app-search-user',
@@ -22,7 +23,11 @@ export class SearchUserComponent implements OnInit, OnDestroy {
     lastName: [''],
   };
 
-  constructor(private fb: FormBuilder, private userService: UserService) {}
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private navigationService: NavigationService
+  ) {}
 
   ngOnInit(): void {
     this.searchUserForm = this.fb.group(this.controls);
@@ -31,7 +36,6 @@ export class SearchUserComponent implements OnInit, OnDestroy {
   onSubmit() {
     //TODO: send data to backend and display search result
     //TODO: Validation
-    console.log(this.searchUserForm);
     this.subscriptions = this.userService
       .mockFetchUsers$({
         userId: this.searchUserForm.value.userId,
@@ -43,7 +47,10 @@ export class SearchUserComponent implements OnInit, OnDestroy {
           if (e.length <= 0) {
             this.error = true;
             this.errorMessage = 'No user found';
-          } else console.log(e);
+          } else {
+            this.userService.setUsers(e);
+            this.navigationService.navigateTo('employee/search-user/users');
+          }
         },
         (error) => {
           this.error = true;
@@ -54,10 +61,10 @@ export class SearchUserComponent implements OnInit, OnDestroy {
 
   onCancel() {
     this.searchUserForm.reset();
+    this.navigationService.navigateToEmployeeHome();
   }
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
   }
-
 }

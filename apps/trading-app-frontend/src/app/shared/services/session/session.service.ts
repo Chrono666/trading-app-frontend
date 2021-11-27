@@ -3,10 +3,8 @@ import { User } from '../../../models/user.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import employeeMock from '../../../mock-data/employeeMock.json';
 import { NavigationService } from '../navigation/navigation.service';
+import employeeMock from '../../../mock-data/employeeMock.json';
 
 @Injectable({
   providedIn: 'root',

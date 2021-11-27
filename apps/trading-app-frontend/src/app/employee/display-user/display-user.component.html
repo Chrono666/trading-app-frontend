@@ -1,0 +1,47 @@
+<div
+  class="
+    uk-card
+    uk-card-default
+    uk-card-body
+    uk-text-center
+    uk-align-center
+    uk-position-center
+  "
+>
+  <h3 class="uk-card-title">Users</h3>
+  <div class="uk-margin-medium-top">
+    <table class="uk-table uk-table-divider">
+      <thead>
+        <tr>
+          <th *ngFor="let heading of tableHeadings">{{ heading }}</th>
+          <th>Depot</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.userId }}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>
+            <button
+              class="uk-button uk-button-primary uk-button-small"
+              (click)="goToDepot(user)"
+            >
+              Depot
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="uk-margin-medium-top">
+    <button
+      class="uk-button uk-button-danger uk-align-left"
+      (click)="onCancel()"
+    >
+      CANCEL
+    </button>
+    <!--    <button class="uk-button uk-button-primary uk-align-right">BUY</button>-->
+  </div>
+</div>
