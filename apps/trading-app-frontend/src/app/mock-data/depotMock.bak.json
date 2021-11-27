@@ -1,0 +1,44 @@
+[
+  {
+    "symbol": "GOOG",
+    "company": "Alphabet Inc.",
+    "floatingStockNumber": "some number",
+    "lastTradeTime": "some date",
+    "lastTradePrice": "some price",
+    "nameStockExchange": "some name",
+    "marketCapitalization": "some value",
+    "priceBought": "price",
+    "currentAmount": "20"
+  },
+  {
+    "symbol": "a",
+    "company": "Alphabet Inc.",
+    "floatingStockNumber": "some number",
+    "lastTradeTime": "some date",
+    "lastTradePrice": "some price",
+    "nameStockExchange": "some name",
+    "marketCapitalization": "some value",
+    "priceBought": "price",
+    "currentAmount": "20"
+  },
+  {
+    "symbol": "b",
+    "company": "Alphabet Inc.",
+    "floatingStockNumber": "some number",
+    "lastTradeTime": "some date",
+    "lastTradePrice": "some price",
+    "nameStockExchange": "some name",
+    "marketCapitalization": "some value"
+  },
+  {
+    "symbol": "C",
+    "company": "Alphabet Inc.",
+    "floatingStockNumber": "some number",
+    "lastTradeTime": "some date",
+    "lastTradePrice": "some price",
+    "nameStockExchange": "some name",
+    "marketCapitalization": "some value",
+    "priceBought": "price",
+    "currentAmount": "20"
+  }
+]

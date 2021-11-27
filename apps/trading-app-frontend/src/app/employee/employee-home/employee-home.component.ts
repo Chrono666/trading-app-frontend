@@ -24,6 +24,10 @@ export class EmployeeHomeComponent {
       title: 'Search User',
       path: 'employee/search-user',
     },
+    {
+      title: 'Current Volume of the Bank',
+      path: 'employee/bank-volume',
+    },
   ];
 
   constructor(private navigationService: NavigationService) {}

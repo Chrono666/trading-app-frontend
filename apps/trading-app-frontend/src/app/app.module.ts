@@ -11,12 +11,14 @@ import { SearchUserComponent } from './employee/search-user/search-user.componen
 import { ViewUserDepotComponent } from './view-user-depot/view-user-depot.component';
 import { KeysPipe } from './shared/pipes/keys.pipe';
 import { FormatTextPipe } from './shared/pipes/format-text.pipe';
-import { StocksComponent } from './employee/stocks/stocks.component';
+import { StocksComponent } from './stocks/stocks.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { DisplayUserComponent } from './employee/display-user/display-user.component';
 import { DepotComponent } from './view-user-depot/depot/depot.component';
+import { BankVolumeComponent } from './employee/bank-volume/bank-volume.component';
+import { SearchComponent } from './stocks/search/search.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { DepotComponent } from './view-user-depot/depot/depot.component';
     ModalComponent,
     DisplayUserComponent,
     DepotComponent,
+    BankVolumeComponent,
+    SearchComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
   providers: [],

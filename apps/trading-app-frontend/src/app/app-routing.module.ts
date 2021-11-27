@@ -5,11 +5,12 @@ import { AuthComponent } from './auth/auth.component';
 import { EmployeeHomeComponent } from './employee/employee-home/employee-home.component';
 import { CreateUserComponent } from './employee/create-user/create-user.component';
 import { SearchUserComponent } from './employee/search-user/search-user.component';
-import { StocksComponent } from './employee/stocks/stocks.component';
+import { StocksComponent } from './stocks/stocks.component';
 import { ViewUserDepotComponent } from './view-user-depot/view-user-depot.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { DisplayUserComponent } from './employee/display-user/display-user.component';
 import { DepotComponent } from './view-user-depot/depot/depot.component';
+import { BankVolumeComponent } from './employee/bank-volume/bank-volume.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
@@ -57,6 +58,11 @@ const routes: Routes = [
       {
         path: 'users',
         component: DisplayUserComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'bank-volume',
+        component: BankVolumeComponent,
         canActivate: [AuthGuard],
       },
     ],

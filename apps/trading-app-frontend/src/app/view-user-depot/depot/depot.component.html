@@ -1,1 +1,40 @@
-<p>depot works!</p>
+<div
+  class="
+    uk-text-center
+    uk-align-center
+    uk-position-center
+  "
+>
+  <h2>Depot of {{user.firstName}} {{user.lastName}}</h2>
+  <div class="uk-margin-medium-top">
+    <table class="uk-table uk-table-divider">
+      <thead>
+      <tr>
+        <th *ngFor="let heading of tableHeadings">{{ heading }}</th>
+        <th>BUY STOCK</th>
+        <th>SELL STOCK</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor='let stocks of depot'>
+        <td>{{stocks.symbol}}</td>
+        <td>{{stocks.company}}</td>
+        <td>{{stocks.priceBought}}</td>
+        <td>{{stocks.currentAmount}}</td>
+        <td><button class='uk-button uk-button-primary uk-button-small'>BUY</button></td>
+        <td><button class='uk-button uk-button-danger uk-button-small'>SELL</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="uk-margin-medium-top">
+    <button
+      class="uk-button uk-button-danger uk-align-left"
+      (click)='onCancel()'
+    >
+      CANCEL
+    </button>
+    <!--    <button class="uk-button uk-button-primary uk-align-right">BUY</button>-->
+  </div>
+</div>
