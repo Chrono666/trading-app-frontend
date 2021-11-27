@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { StockService } from '../../shared/services/stock/stock.service';
-import { Stock } from '../../models/stock.model';
-import { NavigationService } from '../../shared/services/navigation/navigation.service';
+import { StockService } from '../shared/services/stock/stock.service';
+import { Stock } from '../models/stock.model';
+import { NavigationService } from '../shared/services/navigation/navigation.service';
 
 @Component({
   selector: 'trading-app-stocks',

@@ -40,7 +40,7 @@ export class DisplayUserComponent implements OnInit {
   }
 
   goToDepot(user: User) {
-    this.router.navigate([`employee/view-depot/${user.userId}`]);
-    console.log('navigate to depot of', user);
+    this.userService.user = user;
+    this.router.navigate([`employee/view-depot/${user.userId}`]).then();
   }
 }
