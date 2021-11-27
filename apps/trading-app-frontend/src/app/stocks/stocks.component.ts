@@ -8,7 +8,7 @@ import { NavigationService } from '../shared/services/navigation/navigation.serv
 @Component({
   selector: 'trading-app-stocks',
   templateUrl: './stocks.component.html',
-  styleUrls: ['./stocks.component.scss'],
+  styleUrls: ['./stocks.component.scss']
 })
 export class StocksComponent implements OnInit {
   subscriptions = new Subscription();
@@ -21,13 +21,14 @@ export class StocksComponent implements OnInit {
     'Last Trade Time',
     'Last Trade Price',
     'Name Stock Exchange',
-    'Market Capitalization',
+    'Market Capitalization'
   ];
 
   constructor(
     private stockService: StockService,
     private navigationService: NavigationService
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.subscriptions = this.stockService.mockGetStocks$().subscribe((s) => {
@@ -41,5 +42,9 @@ export class StocksComponent implements OnInit {
 
   onCancel() {
     this.navigationService.navigateToEmployeeHome();
+  }
+
+  goToPage(path: string, query: any) {
+    this.navigationService.navigateTo(path, query);
   }
 }

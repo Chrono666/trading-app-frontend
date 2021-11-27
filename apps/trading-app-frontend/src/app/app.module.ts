@@ -17,6 +17,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { DisplayUserComponent } from './employee/display-user/display-user.component';
 import { DepotComponent } from './view-user-depot/depot/depot.component';
+import { TradeComponent } from './employee/stocks/trade/trade.component';
 import { BankVolumeComponent } from './employee/bank-volume/bank-volume.component';
 import { SearchComponent } from './stocks/search/search.component';
 
@@ -35,6 +36,7 @@ import { SearchComponent } from './stocks/search/search.component';
     ModalComponent,
     DisplayUserComponent,
     DepotComponent,
+    TradeComponent,
     BankVolumeComponent,
     SearchComponent,
   ],
