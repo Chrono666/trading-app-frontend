@@ -6,12 +6,13 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../../../models/user.model';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class StockService {
   backendURL = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   mockSellStock$(user: User, symbol: string, amount: string) {
     console.log(`sold ${amount} pieces of ${symbol}`);
@@ -19,6 +20,11 @@ export class StockService {
 
   mockBuyStock$(user: User, symbol: string, amount: string) {
     console.log(`sold ${amount} pieces of ${symbol}`);
+  }
+
+  mockTradeStock$(user: User, symbol: string, amount: string, action: 'buy' | 'sell') {
+    console.log(`${action} ${amount} pieces of ${symbol}`);
+    return of({ value: {}, error: {} });
   }
 
   mockGetStocks$(): Observable<any> {

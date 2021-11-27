@@ -10,6 +10,7 @@ import { ViewUserDepotComponent } from './view-user-depot/view-user-depot.compon
 import { AuthGuard } from './shared/guards/auth.guard';
 import { DisplayUserComponent } from './employee/display-user/display-user.component';
 import { DepotComponent } from './view-user-depot/depot/depot.component';
+import { TradeComponent } from './employee/stocks/trade/trade.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
@@ -17,6 +18,11 @@ const routes: Routes = [
   {
     path: 'employee',
     children: [
+      {
+        path: 'trade',
+        component: TradeComponent,
+        canActivate: [],
+      },
       {
         path: 'home',
         component: EmployeeHomeComponent,

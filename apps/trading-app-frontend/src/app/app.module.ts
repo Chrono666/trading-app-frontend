@@ -17,6 +17,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { DisplayUserComponent } from './employee/display-user/display-user.component';
 import { DepotComponent } from './view-user-depot/depot/depot.component';
+import { TradeComponent } from './employee/stocks/trade/trade.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DepotComponent } from './view-user-depot/depot/depot.component';
     ModalComponent,
     DisplayUserComponent,
     DepotComponent,
+    TradeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
   providers: [],
