@@ -1,32 +1,32 @@
 import { Component } from '@angular/core';
-import { NavigationService } from '../../shared/services/navigation/navigation.service';
+import { NavigationService } from '../shared/services/navigation/navigation.service';
 
 @Component({
   selector: 'trading-app-employee-home',
-  templateUrl: './employee-home.component.html',
-  styleUrls: ['./employee-home.component.scss'],
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
-export class EmployeeHomeComponent {
+export class HomeComponent {
   menuOptions = [
     {
       title: 'View Available Stocks',
-      path: 'employee/stocks',
+      path: '/stocks',
     },
     {
       title: 'Display Users',
-      path: 'employee/users',
+      path: '/users',
     },
     {
       title: 'Create User',
-      path: 'employee/create-user',
+      path: '/users/create',
     },
     {
       title: 'Search User',
-      path: 'employee/search-user',
+      path: '/users/search',
     },
     {
       title: 'Current Volume of the Bank',
-      path: 'employee/bank-volume',
+      path: '/bank-volume',
     },
   ];
 

@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Subscriber, Subscription } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../../../shared/services/user/user.service';
+import { UserService } from '../../shared/services/user/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavigationService } from '../../../shared/services/navigation/navigation.service';
-import { tradeActionValidator } from '../../../shared/validators/tradeActionValidator';
-import { StockService } from '../../../shared/services/stock/stock.service';
+import { NavigationService } from '../../shared/services/navigation/navigation.service';
+import { tradeActionValidator } from '../../shared/validators/tradeActionValidator';
+import { StockService } from '../../shared/services/stock/stock.service';
 
 export type TradeAction = 'buy' | 'sell';
 
@@ -61,7 +61,7 @@ export class TradeComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         (response) => {
-          this.router.navigate(['employee/home']).then();
+          this.router.navigate(['home/home']).then();
         },
         (error) => {
           this.error = true;

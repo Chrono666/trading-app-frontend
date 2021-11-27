@@ -5,14 +5,17 @@ import { map, Observable, of } from 'rxjs';
 import customerMock from '../../../mock-data/customerMock.json';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class UserService {
   url = 'backendURL';
+  // should be all users when no search happens.
+  // or is a subset of all users when the user searches for something.
   users: User[] = [];
   user: User = {};
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   //TODO: faulty logic but user selection should happen in backend
   //TODO: backend should also return error msg if no user exists
@@ -43,7 +46,7 @@ export class UserService {
 
   fetchUsers$(user: User): Observable<User[]> {
     return this.http.get<User[]>(this.url, {
-      headers: new HttpHeaders({ user: JSON.stringify(user) }),
+      headers: new HttpHeaders({ user: JSON.stringify(user) })
     });
   }
 

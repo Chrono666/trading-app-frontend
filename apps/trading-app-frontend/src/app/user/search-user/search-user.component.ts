@@ -34,7 +34,7 @@ export class SearchUserComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    //TODO: send data to backend and display search result
+    //TODO: send data to backend and display search.html result
     //TODO: Validation
     this.subscriptions = this.userService
       .mockFetchUsers$({
@@ -49,7 +49,7 @@ export class SearchUserComponent implements OnInit, OnDestroy {
             this.errorMessage = 'No user found';
           } else {
             this.userService.setUsers(e);
-            this.navigationService.navigateTo('employee/search-user/users');
+            this.navigationService.navigateTo('home/search.html-user/users');
           }
         },
         (error) => {

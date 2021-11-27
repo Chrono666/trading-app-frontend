@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { NavigationService } from '../shared/services/navigation/navigation.service';
-import { SessionService } from '../shared/services/session/session.service';
-import { UserService } from '../shared/services/user/user.service';
-import { AuthService } from '../shared/services/auth/auth.service';
+import { NavigationService } from '../../shared/services/navigation/navigation.service';
+import { SessionService } from '../../shared/services/session/session.service';
+import { UserService } from '../../shared/services/user/user.service';
+import { AuthService } from '../../shared/services/auth/auth.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -44,7 +44,7 @@ export class AuthComponent implements OnInit, OnDestroy {
       .subscribe((user) => {
         this.userService.setUser(user);
         this.authService.authenticated = true;
-        this.navigationService.navigateTo('employee/home');
+        this.navigationService.navigateTo('/home');
       });
   }
 

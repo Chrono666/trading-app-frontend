@@ -22,13 +22,13 @@ export class DisplayUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.router.url === '/employee/users') {
+    //if (this.router.url === '/home/users') {
       this.subscriptions = this.userService
         .mockFetchAllUsers$()
         .subscribe((users) => (this.users = users));
-    } else {
-      this.users = this.userService.users;
-    }
+    //} else {
+    //  this.users = this.userService.users;
+    //}
   }
 
   onCancel() {

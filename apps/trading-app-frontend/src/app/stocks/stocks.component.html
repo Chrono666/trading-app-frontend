@@ -30,13 +30,13 @@
         <td>{{stock.marketCapitalization}}</td>
         <td>
           <button class='uk-button uk-button-primary uk-button-small'
-                  (click)='goToPage("employee/trade", {symbol: stock.symbol, action: "buy"})'>
+                  (click)='goToPage("stocks/trade", {symbol: stock.symbol, action: "buy"})'>
             BUY
           </button>
         </td>
         <td>
           <button class='uk-button uk-button-danger uk-button-small'
-                  (click)='goToPage("employee/trade", {symbol: stock.symbol, action: "sell"})'>
+                  (click)='goToPage("stocks/trade", {symbol: stock.symbol, action: "sell"})'>
             SELL
           </button>
         </td>

@@ -13,6 +13,6 @@ export class NavigationService {
   }
 
   navigateToEmployeeHome() {
-    this.router.navigate(['employee/home']).then();
+    this.router.navigate(['home/home']).then();
   }
 }

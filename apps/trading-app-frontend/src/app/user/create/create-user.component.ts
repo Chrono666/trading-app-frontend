@@ -47,7 +47,7 @@ export class CreateUserComponent implements OnInit, OnDestroy {
       })
       .subscribe(
         (response) => {
-          this.router.navigate(['employee/home']).then();
+          this.router.navigate(['home/home']).then();
         },
         (error) => {
           this.error = true;
